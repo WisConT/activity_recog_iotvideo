@@ -52,6 +52,56 @@ Project Organization
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
 
+
+# How to Start Working: virtualenv, requirements and more
+------------
+
+First, clone this repo and cd in this folder. You should be using Python 3.7.X.
+
+Create a virtual environment typing:
+
+```shell
+virtualenv venv_activrecog
+```
+
+In Linux/Mac activate the virtualenv by typing:
+
+```shell
+source venv_activrecog/bin/activate
+```
+
+Install all requirements and also install this repo in the venv:
+
+```shell
+pip install -r requirements.txt
+pip install -e .
+```
+
+## Make the virtualenv available to jupyter notebook:
+
+```shell
+python -m ipykernel install --name=venv_activrecog
+```
+
+You should now be able to find the "venv_activrecog" kernel in your list of available kernels in jupyter notebook.
+Create a notebook in the corresponding folder (/notebooks) and start working on your specific task. You should
+first develop/demonstrate your work in the notebook and then we will migrate code to the source folder (/src).
+The test/sample data we will use for development/debug will be located in the data folder.
+
+
+# Code Changes/Review Process
+------------
+
+This repository has 3 core branches:
+- master
+- develop (default)
+
+Make sure to commit code to 'develop' branch only (default). We will review code and
+migrate as appropriate to "Production" branch (master) in a progressive fashion
+(once tests by multiple stakeholders is complete). Other branches can be created
+as for example features which can then be merged to develop and so on.
+
+
 --------
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
